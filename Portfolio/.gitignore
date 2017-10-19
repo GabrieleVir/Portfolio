@@ -16,4 +16,7 @@
 /node_modules
 /yarn-error.log
 
+/db/seeds.rb
+
+
 .byebug_history
