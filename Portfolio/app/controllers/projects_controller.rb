@@ -1,5 +1,6 @@
 class ProjectsController < InheritedResources::Base
 
+
   before_action :set_category
 
   private

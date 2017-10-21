@@ -1,20 +1,30 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Projects</h1>
-
-<% @categories.each do |category| %>
-  <div>
-    <h2><%= category.name %></h2>
-    <% @projects.each do |project| %>
-      <% if project.category.name == category.name %>
-        <h3><%= project.title %></h3>
-        <p><%= project.description %></p>
-        <p><%= project.content %></p>
+<div class="container">
+  <% @categories.each do |category| %>
+    <div class="row">
+      <h2><%= category.name %></h2>
+    </div>
+    <div class="row">
+      <% @projects.each do |project| %>
+        <% if project.category.name == category.name %>
+            <div class="col-md-3 col-lg-3 text-center"> 
+              <div class="layout-projects">
+                <h3><%= project.title %></h3>
+                <% if project.img_url %>
+                  <img src="<%= project.img_url %>" alt="Image du projet" class="img-projects">
+                <% end %>
+                <p><%= project.description %></p>
+                <p><%= project.content %></p>
+                <a href="<%= project_path(project.id) %>" class="btn btn-primary a-button">Lire la suite</a>
+              </div>
+            </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-
-<% end %>
+    </div>
+  <% end %>
+</div>
 
 <table>
   <thead>
